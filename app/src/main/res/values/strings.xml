@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AgedCare</string>
+    <string name="connect_failed">无网络?</string>
+    <string name="name">警号</string>
+    <string name="password">密码</string>
+    <string name="soft_update">软件更新</string>
+    <string name="rootPath">/mnt/sdcard/PNS9</string>
+</resources>

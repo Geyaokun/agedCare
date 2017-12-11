@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        punuo {
+            keyAlias 'hangzhoupunuokeystore'
+            keyPassword '123456'
+            storeFile file('C:/Users/asus/AndroidStudioProjects/keystore/hangzhoupunuo.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.nuopushi.sys.app.agedcare"
+        minSdkVersion 22
+        targetSdkVersion 23
+        versionCode 1
+        versionName "2017_11_3.1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        signingConfig signingConfigs.punuo
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.punuo
+        }
+        debug {
+            signingConfig signingConfigs.punuo
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/butterknife-7.0.1.jar')
+    compile files('libs/commons-net-2.2.jar')
+}
